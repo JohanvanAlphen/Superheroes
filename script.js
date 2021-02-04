@@ -1,80 +1,90 @@
+// [].find
+// [].forEach
+// [].some
+// [].every
+// [].includes
+// [].map
+// [].filter
+// [].reduce
+
 // Opdracht A
-// Schrijf een JavaScript functie om het woord "cool" aan een array met strings toe te voegen. 
-// Gebruik de .push method.
+// Schrijf een JavaScript functie die een bepaald item weet te vinden en terug geeft op basis van een bepaalde value.
+// Zoek het hele object van Spiderman, gebaseerd op de name "Spiderman".
+const superheroes = [
+    { name: "Batman", alter_ego: "Bruce Wayne" },
+    { name: "Superman", alter_ego: "Clark Kent" },
+    { name: "Spiderman", alter_ego: "Peter Parker" }]
 
-const addTheWordCool = function (array) {
-    // add your code
-    array.push("cool");
-    return array;
-}
-console.log("Add cool:", addTheWordCool(["nice", "awesome", "tof"]));
-// resultaat: ["nice", "awesome", "tof", "cool"]
+// Hier komt jouw functie
 
-// Opdracht B
-// Schrijf een JavaScript functie die het aantal elementen in een array retourneert.
+const findSpiderMan = (array) => array.find(superhero => superhero.name === "Spiderman");
+console.log(findSpiderMan(superheroes))
+// Find Spiderman
+// result should be: {name: "Spiderman", alter_ego: "Peter Parker"}
 
-const amountOfElementsInArray = function (fruit) {
-    return fruit.length;
-}
-console.log(amountOfElementsInArray(['appels', 'peren', 'citroenen']));
-// 3
+// Opdracht B  
+// Zorg dat je een array returned met de integers verdubbeld. 
+//Gebruik de .forEach method of, een level hoger: de .map method.  
+
+// .forEach function
+// const doubleArrayValues = [1, 2, 3];
+// doubleArrayValues.forEach(function (value, index, array) {
+//     array[index] = value * 2;
+// });
+
+// .map function
+const numbers = [1, 2, 3];
+const doubleArrayValues = numbers.map(x => x * 2);
+
+console.log(doubleArrayValues)
+// result should be [2, 4, 6]
 
 // Opdracht C
-// Schrijf een JavaScript functie om het éérste element uit een array te retourneren. 
-// PS: Bij welk cijfer begint een array ook alweer met tellen?
+// Schrijf een JavaScript functie die checkt of er een nummer (integer) in de array aanwezig is dat groter is dan 10.
+const numbers1 = [1, 4, 3, 6, 9, 7, 11];
+const numbers2 = [1, 2, 1, 2, 1, 2];
+const containsNumberBiggerThan10 = (array) => array.some(number => number > 10);
 
-const selectBelgiumFromBenelux = function (benelux) {
-    return benelux[0];
-}
-console.log(selectBelgiumFromBenelux(["Belgie", "Nederland", "Luxemburg"]));
-// resultaat: "Belgie"
+console.log(containsNumberBiggerThan10(numbers1))
+console.log(containsNumberBiggerThan10(numbers2))
+// containsNumberBiggerThan10([1, 4, 3, 6, 9, 7, 11])
+// result should be true
+// containsNumberBiggerThan10([1, 2, 1, 2, 1, 2]})
+// result should be false
 
 // Opdracht D
-// Schrijf een JavaScript functie om het laatste element uit een array te retourneren.
-
-const lastElementInArray = function (laatste) {
-    return laatste[laatste.length - 1];
-}
-console.log(lastElementInArray(["Haas", "Cavia", "Kip", "Schildpad"]));
-// resultaat: "Schildpad"
+// Schrijf een JavaScript functie die kijkt of er een bepaalde string: "Italy" in de array aanwezig is.
+const countries = ['Canada', 'France', 'Germany', 'Italy', 'Japan', 'United Kingdom', 'United States'];
+const isItalyInTheGreat7 = (array) => array.includes('Italy');
+console.log(isItalyInTheGreat7(countries))
+//isItalyInTheGreat7(['Canada', 'France','Germany','Italy','Japan','United Kingdom','United States'])
+// result should be true
 
 // Opdracht E
-// Schrijf een JavaScript functie om het eerste element uit een array te halen en het restant te retourneren . 
-//Gebruik .slice én de alternatieve optie .splice. Wat is het verschil tussen deze functies? Hint: mutability.
+// Schrijf een JavaScript functie die elke integer vertienvoudigt. 
+// Gebruik .forEach.
 
-const presidents = ["Trump", "Obama", "Bush", "Clinton"]
-
-// Slice
-const impeachTrumpSlice = function (array) {
-    return (presidents.slice(1));
-}
-
-//Splice
-const impeachTrumpSplice = function (array) {
-    return (presidents.splice(1));
-}
-
-console.log(impeachTrumpSlice(presidents)); // ["Obama", "Bush", "Clinton"]
-console.log(impeachTrumpSplice(presidents)); // ["Obama", "Bush", "Clinton"]
-
-//Verschil; splice muteert de array
+const tenfold = [1, 4, 3, 6, 9, 7, 11];
+tenfold.forEach(function (value, index, array) {
+    array[index] = value * 10;
+});
+console.log(tenfold)
+// result should be [10, 40, 30, 60, 90, 70, 110]
 
 // Opdracht F
-// Write a simple JavaScript program to join all elements of the following array into a string (with spaces).
+//Schrijf een JavaScript functie die checkt of alle waardes in de array onder de 100 zijn, en true or false retourneert.
 
-const stringsTogether = function (array) {
-    return array.join(" ");
-}
-console.log(stringsTogether(['Winc', 'Academy', 'is', 'leuk', ';-}']))
-//resultaat: "Winc Academy is leuk ;-}"
+const numbers3 = [1, 81, 4, 53, 3, 6, 79, 2, 43, 7, 28, 11, 77, 84, 98];
+const isBelow100 = (array) => array.some(number => number > 100);
+console.log(isBelow100(numbers3))
+// result should be: false
 
 // Opdracht G
-// Schrijf een functie die 2 arrays ['array 1'] ['array2'] combineert tot 1 array ['array1', 'array2']
+//Schrijf een JavaScript functie die alle waardes in de array bij elkaar optelt en het totaal van de som retourneert. 
+//Gebruik de .reduce method. En echt, gebruik Google.
 
-// const array1 = [1, 2, 3];
-// const array2 = [4, 5, 6];
-const combineArrays = function (array1, array2) {
-    return array1.concat(array2);
-}
-console.log(combineArrays([1, 2, 3], [4, 5, 6]))
-// resultaat: [1,2,3,4,5,6]
+const bigSum = [1, 81, 4, 53, 3, 6, 79, 2, 43, 7, 28, 11, 77, 84, 98, 101, 206, 234];
+const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+console.log(bigSum.reduce(reducer));
+// result should be 1118
